@@ -1,5 +1,5 @@
 #clientForm{
-	   /*background-color: #F9F9FF;*/
+	   /*background-color: #ffffff;*/
 }
 .myInput{
 	display: block;
@@ -19,6 +19,7 @@
 html,
 body {
     height: 100%;
+    color: #222222;
 }
 .default-select>select{
 	display: block;
@@ -87,7 +88,7 @@ height: 150px;
 }
 @media only screen and (max-width: 991px) {
   .myLogo{
-    width: 60px!important;
+    width: 50px!important;
   }
   .myPic{
     padding-left: 25%;
@@ -143,11 +144,12 @@ height: 150px;
 	width: 100%;
 }
 .img-container:hover>img{
-	opacity:0.5;
-	filter: brightness(25%);
+	opacity:0.6;
+	filter: brightness(80%);
+
 }
 .project-btn:hover{
-	background: #8193ff;
+	background: #1B323B;
 	color:#fff!important;
 	border: 1px solid #fff!important;
 }
@@ -197,13 +199,13 @@ margin-bottom: 10px!important;
 }
 
 .load-all{
-  background-color: #8193ff;
+  background-color: #203A43;
   color:#fff;
   cursor: pointer;
 }
 .load-all:hover{
   color:#fff;
-  background-color: #63BBFB;
+  background-color: #0F2027;
 }
 #load-all-content{
   display:none;
@@ -217,60 +219,40 @@ margin-bottom: 10px!important;
   border-style: none!important;
   outline: none!important;
 }
-
-
-
-
-
-/* @keyframes scroll {
-  0% {
-    transform: translateX(0);
- }
-  100% {
-    transform: translateX(calc(-250px * 7));
- }
+.single-project>p{
+  font-weight: 500;
 }
-.slider {
-  background: white;
-  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
-  height: 30em;
-  margin: auto;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
+.tech>span{
+  padding-top: 30px;
 }
-.slider::before, .slider::after {
-  background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-  content: "";
-  height: 100px;
-  position: absolute;
-  width: 200px;
-  z-index: 2;
+.my-name{
+  margin-left: 0.5em;
 }
-.slider::after {
-  right: 0;
-  top: 0;
-  transform: rotateZ(180deg);
-}
-.slider::before {
-  left: 0;
-  top: 0;
-}
-.slider .slide-track {
-  animation: scroll 10s linear infinite;
-  display: flex;
-  width: calc(250px * 14);
-}
-.slider .slide {
-  height: 100px;
-  width: 250px;
-} */
 
 @media only screen and (max-width: 992px) {
+  .order-md-1{
+    order:-1;
+  }
   .my-name {
     visibility: hidden;
   }
   .card-test{
     margin-right: 0em;
+  }
+  .single-project{
+    text-align: center;
+  }
+  .single-project>h4{
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+  .tech{
+    position:relative;
+    margin-top: 3em;
+  }
+  #call-to-action{
+    padding-top: 8em!important;
+    padding-bottom: 0em!important;
+    text-align: center;
   }
 }

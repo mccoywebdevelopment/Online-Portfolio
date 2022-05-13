@@ -20,11 +20,12 @@ var addEvent = function(object, type, callback) {
   }
 };
 
+
 function removePic(x) {
-  var myPic = document.getElementsByClassName('myPic')[0];
-  if (x < 992) {
+  var myPic = document.getElementsByClassName('my-gif')[0];
+  if (myPic && x < 992) {
     myPic.style.display = "none";
-  } else if (myPic.style.display == "none") {
+  } else if (myPic && myPic.style.display == "none") {
     myPic.style.display = "block";
   }
 }
@@ -49,13 +50,13 @@ function removeProject(x) {
   var bigScreen = document.querySelectorAll('.myBigScreen')[0];
   var projectTag = document.getElementById('projectTag');
   // var smallScreen=document.querySelectorAll('.mySmallScreen')[0];
-  if (x < 992) {
-    bigScreen.style.display = "none";
-    projectTag.style.display = "none";
-  } else {
-    bigScreen.style.display = "block";
-    projectTag.style.display = "block";
-  }
+  // if (x < 992) {
+  //   bigScreen.style.display = "none";
+  //   projectTag.style.display = "none";
+  // } else {
+  //   bigScreen.style.display = "block";
+  //   projectTag.style.display = "block";
+  // }
 }
 
 function project_resize() {
@@ -107,8 +108,9 @@ function carousel(x){
       nextArrow: false,
       autoplay: true,
       slidesToShow,
-      autoplaySpeed: 5000,
       infinite: true,
+      cssEase:'linear',
+      autoplaySpeed: 3000,
     });
   });
 }
