@@ -146,6 +146,7 @@ function scrollToElement() {
 
   if(element){
     showAll()
+    element = document.getElementById(id);
     element.scrollIntoView();
     window.scrollBy(0, -100);  
   }
