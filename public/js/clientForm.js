@@ -150,7 +150,7 @@ function scrollToElement() {
       element = document.getElementById(id);
       element.scrollIntoView();
       window.scrollBy(0, -250);
-    },2000)  
+    },200)  
   }
 }
 
