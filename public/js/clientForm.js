@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
   var width = window.innerWidth;
   makeNavDisappear();
   proj_img_overlay();
@@ -7,10 +7,11 @@ window.onload = function() {
   removeProject(width);
   loadAllProjects();
   carousel(width);
+  scrollToElement();
 }
 
-var addEvent = function(object, type, callback) {
-  if (object == null || typeof(object) == 'undefined') return;
+var addEvent = function (object, type, callback) {
+  if (object == null || typeof (object) == 'undefined') return;
   if (object.addEventListener) {
     object.addEventListener(type, callback, false);
   } else if (object.attachEvent) {
@@ -29,21 +30,28 @@ function removePic(x) {
     myPic.style.display = "block";
   }
 }
-function loadAllProjects(){
+function loadAllProjects() {
   let loadAllBtn = document.getElementById('load-all-btn');
 
-    loadAllBtn.addEventListener('click',function(){
-        let loadContent = document.getElementById('load-all-content');
-        console.log('click')
-        console.log(loadContent.style.display)
-        if(!loadContent.style.display || loadContent.style.display == 'none'){
-            loadContent.style.display = 'block';
-            this.textContent = "View Less"
-        }else{
-            loadContent.style.display = 'none';
-            this.textContent = "View All"
-        }
-    });
+  loadAllBtn.addEventListener('click', function () {
+    let loadContent = document.getElementById('load-all-content');
+    if (!loadContent.style.display || loadContent.style.display == 'none') {
+      showAll(loadContent,this);
+    } else {
+      loadContent.style.display = 'none';
+      this.textContent = "View All"
+    }
+  });
+}
+
+function showAll(loadContent,loadAllBtn){
+    if(!loadAllBtn){
+      loadAllBtn = document.getElementById('load-all-btn');
+      loadContent = document.getElementById('load-all-content');
+    }
+
+    loadContent.style.display = 'block';
+    loadAllBtn.textContent = "View Less"
 }
 
 function removeProject(x) {
@@ -60,7 +68,7 @@ function removeProject(x) {
 }
 
 function project_resize() {
-  addEvent(window, "resize", function(event) {
+  addEvent(window, "resize", function (event) {
     var w = window,
       d = document,
       e = d.documentElement,
@@ -76,7 +84,7 @@ function project_resize() {
 function proj_img_overlay() {
   var projectImg = document.getElementsByClassName('img-container');
   for (var i = 0; i < projectImg.length; ++i) {
-    projectImg[i].addEventListener('mouseenter', function() {
+    projectImg[i].addEventListener('mouseenter', function () {
       for (var ix = 0; ix < this.childNodes.length; ++ix) {
         if (this.childNodes[ix].className &&
           this.childNodes[ix].className.includes("centered")) {
@@ -85,7 +93,7 @@ function proj_img_overlay() {
       }
     });
 
-    projectImg[i].addEventListener('mouseleave', function() {
+    projectImg[i].addEventListener('mouseleave', function () {
       for (var ix = 0; ix < this.childNodes.length; ++ix) {
         if (this.childNodes[ix].className &&
           this.childNodes[ix].className.includes("centered")) {
@@ -96,7 +104,7 @@ function proj_img_overlay() {
   }
 }
 
-function carousel(x){
+function carousel(x) {
   let slidesToShow = 3;
   if (x < 992) {
     slidesToShow = 1;
@@ -109,7 +117,7 @@ function carousel(x){
       autoplay: true,
       slidesToShow,
       infinite: true,
-      cssEase:'linear',
+      cssEase: 'linear',
       autoplaySpeed: 3000,
     });
   });
@@ -120,7 +128,7 @@ function makeNavDisappear() {
   var navBtn = document.querySelectorAll(".myDis");
   if (screen.width <= 992) {
     for (var i = 0; i < navBtn.length; ++i) {
-      navBtn[i].addEventListener("click", function() {
+      navBtn[i].addEventListener("click", function () {
         if (screen.width <= 992) {
           console.log(screen.width);
           navBar.click();
@@ -131,7 +139,19 @@ function makeNavDisappear() {
   }
 }
 
-addEvent(window, "resize", function(event) {
+function scrollToElement() {
+  let url = window.location.href;
+  let id = url.split('=')[1];
+  let element = document.getElementById(id);
+
+  if(element){
+    showAll()
+    element.scrollIntoView();
+    window.scrollBy(0, -100);  
+  }
+}
+
+addEvent(window, "resize", function (event) {
   makeNavDisappear();
 });
 
