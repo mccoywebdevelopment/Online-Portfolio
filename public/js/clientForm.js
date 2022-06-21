@@ -149,7 +149,7 @@ function scrollToElement() {
     setTimeout(()=>{
       element = document.getElementById(id);
       element.scrollIntoView();
-      window.scrollBy(0, -150);
+      window.scrollBy(0, -250);
     },2000)  
   }
 }
